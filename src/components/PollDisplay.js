@@ -1,13 +1,17 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import UserParticipation from "./UserParticipation";
 import { render } from "@testing-library/react";
 
 function PollDisplay() {
 
+
+   
     const [isStart,setIsStart] = useState(false)
+    
     const [description,setDescription] = useState("Start")
     const [votes,setVotes] =useState({"question": "What is your favorite programming language?",
       
+    
     "choices": [
   
       { "id": 1, "label": "JavaScript", "votes": 0 },
@@ -41,7 +45,7 @@ function PollDisplay() {
              
              if(!isStart)
              {
-                render(<div><UserParticipation votes={votes} setVotes={setVotes}/></div>)
+                render(<div><UserParticipation votes={votes} setVotes={setVotes} setStart={setIsStart}/></div>)
                 setIsStart(true)
                 setDescription("Started")
 

@@ -1,7 +1,10 @@
+import { render } from "@testing-library/react"
 import { useState ,useEffect} from "react"
 
-function UserParticipation({votes,setVotes}) {
+import AnotherUserParticipation from "./AnotherUserParticipation"
+function UserParticipation({votes,setVotes,setStart}) {
  
+    const [isSelected,setIsSelected] = useState(false)
     const [id,setId]  = useState("0")
     const handleChange = (event)=>{
 
@@ -34,6 +37,12 @@ function UserParticipation({votes,setVotes}) {
             
             setVotes({...votes});
 
+            
+            render(
+<AnotherUserParticipation setStart={setStart}/>
+            )
+            
+            
 
             }}>Submit</button>
       </>
