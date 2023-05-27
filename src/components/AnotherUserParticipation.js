@@ -9,7 +9,10 @@ function AnotherUserParticipation({setStart}) {
         setStart(false)
 
     }}>Particiapte Again</button>
-    </>  );
+    <ThankYouMessage/>
+    </> 
+    
+    );
 
     
 }
