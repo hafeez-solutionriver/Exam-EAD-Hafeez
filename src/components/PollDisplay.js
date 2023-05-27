@@ -1,7 +1,11 @@
 import { useState } from "react"
+import UserParticipation from "./UserParticipation";
+import { render } from "@testing-library/react";
 
 function PollDisplay() {
 
+    const [isStart,setIsStart] = useState(false)
+    const [description,setDescription] = useState("Start")
     const [votes,setVotes] =useState({"question": "What is your favorite programming language?",
       
     "choices": [
@@ -32,6 +36,20 @@ function PollDisplay() {
             {votes["choices"][2]["label"]} # of Votes: {votes["choices"][2]["votes"]} <br/>
             
             {votes["choices"][3]["label"]} # of Votes: {votes["choices"][3]["votes"]} <br/>
+
+            <button onClick={()=>{
+             
+             if(!isStart)
+             {
+                render(<div><UserParticipation votes={votes} setVotes={setVotes}/></div>)
+                setIsStart(true)
+                setDescription("Started")
+
+             }
+             
+            
+            }}> {description}</button>
+            
       </>
     
      );
